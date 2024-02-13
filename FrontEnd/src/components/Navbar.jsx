@@ -1,6 +1,7 @@
 import {cart,hamburger,search,heart,person} from '../assets/icons/index'
 import logo from '../assets/images/logo.png'
-import Sidebar from 'react-sidebar';
+import Drawer from 'react-modern-drawer'
+import 'react-modern-drawer/dist/index.css'
 import { useState } from 'react';
 const Navbar = () => {
 
@@ -13,14 +14,13 @@ const [accountShown,setAccountShown] = useState(false);
   const onSetSidebarOpen = (open) => {
     setSidebarOpen(open);
   };
+  
 
 
   return (
     <header>
-        <Sidebar
-        sidebar=
-        {
-        <div className='p-4'>
+        <Drawer open={sidebarOpen} onClose={()=>onSetSidebarOpen(false)} duration={100} >
+        <div className=  {` p-4 bg-black w-96 h-screen`}>
         <div className='mr-5 mt-3 text-end'>
             <i className="fa fa-times text-white"></i>
         </div>
@@ -70,16 +70,11 @@ const [accountShown,setAccountShown] = useState(false);
 s
         </ul>
         </div>
-        }
-        open={sidebarOpen}
-        onSetOpen={onSetSidebarOpen}
-        docked={false}
-        styles={{ sidebar: { background: '#000000', width: '280px' } }}>
-      </Sidebar>
+          </Drawer> 
     <div className="w-full flex border-2 justify-between items-center px-5 xl:hidden">
         <div className=' relative'>
-            <img src={hamburger} alt="menu" className=' w-6' onClick={() => onSetSidebarOpen(true)}/>
-        </div>
+            <img src={hamburger} alt="menu" className=' w-7 mx-3 my-2' onClick={()=>setSidebarOpen(true)}/>      
+       </div>
         <div className=' relative'>
             <a href="/"><img src={logo} alt="logo" className=' w-40'/></a>
         </div>
@@ -91,7 +86,7 @@ s
         </div>
     </div>
 
-    <div className='w-full flex gap-8 pl-0 max-xl:hidden border-2 my-1'>
+    <div className='w-full flex gap-8 pl-0 max-xl:hidden border-2'>
        <div className=' relative border-x-2 p-3'>
             <a href="/"><img src={logo} alt="logo" className=' w-40'/></a>
         </div>
@@ -149,9 +144,9 @@ s
         </div>
             </div>
             <div className='flex gap-14'>
-                <div className="font-bold hover:text-green-400 cursor-pointer">Best Sellers</div>
+                <div className="font-bold hover:text-green-400 cursor-pointer text-[1.05rem]">Best Sellers</div>
                 <div className="group">
-                       <div className="font-bold hover:text-green-400 cursor-pointer pb-5">
+                       <div className="font-bold hover:text-green-400 text-[1.05rem] cursor-pointer pb-5">
                          Leagues
                           <i className="fa fa-angle-down ml-2"></i>
                        </div>
@@ -166,10 +161,10 @@ s
                         </ul>
                        </div>
                 </div>
-                <div className="font-bold hover:text-green-400 cursor-pointer">Kids</div>
-                <div className="font-bold hover:text-green-400 cursor-pointer">International</div>
+                <div className="font-bold hover:text-green-400 text-[1.05rem] cursor-pointer">Kids</div>
+                <div className="font-bold hover:text-green-400 text-[1.05rem] cursor-pointer">International</div>
                 <div className="group">
-                       <div className="font-bold hover:text-green-400 cursor-pointer pb-5">
+                       <div className="font-bold hover:text-green-400 text-[1.05rem] cursor-pointer pb-5">
                          Women
                          <i className="fa fa-angle-down ml-2"></i>
                        </div>
@@ -180,7 +175,7 @@ s
                         </ul>
                        </div>
                 </div>
-                <div className="font-bold hover:text-green-400 cursor-pointer">Pre-Match</div>
+                <div className="font-bold hover:text-green-400 text-[1.05rem] cursor-pointer">Pre-Match</div>
 
             </div>
 

@@ -1,4 +1,5 @@
-import Navbar from "../../../components/navbar"
+import Navbar from "../../../components/Navbar"
+import BestSellers from "./bestSellers"
 import Hero from "./hero"
 
 const Landing = () => {
@@ -6,6 +7,8 @@ const Landing = () => {
     <main>
         <Navbar/>
         <Hero/>
+        <BestSellers/>
+
     </main>
   )
 }
